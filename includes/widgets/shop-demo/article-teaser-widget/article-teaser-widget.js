@@ -1,19 +1,19 @@
-define(['exports', 'module', 'react'], function (exports, module, _react) {
-   /**
-    * Copyright 2016 aixigo AG
-    * Released under the MIT license.
-    * http://laxarjs.org/license
-    *
-    * compile using
-    * > babel -m amd -d . article-teaser-widget.jsx
-    */
+define(['exports', 'react'], function (exports, _react) {
    'use strict';
 
-   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+   Object.defineProperty(exports, "__esModule", {
+      value: true
+   });
 
-   var _React = _interopRequireDefault(_react);
+   var _react2 = _interopRequireDefault(_react);
 
-   module.exports = {
+   function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : {
+         default: obj
+      };
+   }
+
+   exports.default = {
       name: 'article-teaser-widget',
       injections: ['axEventBus', 'axFeatures', 'axReactRender'],
       create: function create(eventBus, features, reactRender) {
@@ -33,20 +33,20 @@ define(['exports', 'module', 'react'], function (exports, module, _react) {
          }
 
          function render() {
-            reactRender(_React['default'].createElement(
+            reactRender(_react2.default.createElement(
                'div',
                null,
-               _React['default'].createElement(ArticleHeader, { isSelected: !!resources.article }),
-               _React['default'].createElement(ArticleTeaser, { article: resources.article || { name: 'No article selected' } }),
-               _React['default'].createElement(
+               _react2.default.createElement(ArticleHeader, { isSelected: !!resources.article }),
+               _react2.default.createElement(ArticleTeaser, { article: resources.article || { name: 'No article selected' } }),
+               _react2.default.createElement(
                   'div',
                   { className: 'clearfix' },
-                  _React['default'].createElement(
+                  _react2.default.createElement(
                      'button',
                      { type: 'button',
                         className: 'btn pull-right ' + (resources.article ? 'btn-info' : 'ax-disabled'),
                         onClick: addToCart },
-                     _React['default'].createElement('i', { className: 'fa fa-shopping-cart' }),
+                     _react2.default.createElement('i', { className: 'fa fa-shopping-cart' }),
                      ' Add to Cart'
                   )
                )
@@ -57,88 +57,81 @@ define(['exports', 'module', 'react'], function (exports, module, _react) {
       }
    };
 
-   var ArticleHeader = _React['default'].createClass({
-      displayName: 'ArticleHeader',
 
+   var ArticleHeader = _react2.default.createClass({
       render: function render() {
          var isSelected = this.props.isSelected;
 
-         return _React['default'].createElement(
+         return _react2.default.createElement(
             'h3',
             { className: 'ax-function-point ' + (isSelected ? 'app-selection' : '') },
-            _React['default'].createElement('i', { className: 'fa fa-search' }),
+            _react2.default.createElement('i', { className: 'fa fa-search' }),
             ' Details'
          );
       }
    });
 
-   var ArticleTeaser = _React['default'].createClass({
-      displayName: 'ArticleTeaser',
-
+   var ArticleTeaser = _react2.default.createClass({
       render: function render() {
          var article = this.props.article;
 
-         return _React['default'].createElement(
+         return _react2.default.createElement(
             'div',
             { className: 'app-teaser-wrapper clearfix' + (article.id && ' app-selection') },
-            _React['default'].createElement(
+            _react2.default.createElement(
                'h4',
                { className: article.id || 'app-no-selection' },
                article.name
             ),
-            _React['default'].createElement(
+            _react2.default.createElement(
                'div',
                { className: 'row' },
-               _React['default'].createElement(
+               _react2.default.createElement(
                   'div',
-                  { className: 'col col-md-12 app-teaser-image-wrapper' },
-                  article.pictureUrl && _React['default'].createElement('img', { className: 'app-teaser-image', src: article.pictureUrl })
-               )
-            ),
-            _React['default'].createElement(
-               'div',
-               { className: 'row' },
-               _React['default'].createElement(
-                  'div',
-                  { className: 'col col-md-12' },
-                  _React['default'].createElement(
+                  { className: 'col col-md-6' },
+                  _react2.default.createElement(
                      'dl',
                      { className: 'dl-horizontal' },
-                     _React['default'].createElement(
+                     _react2.default.createElement(
                         'dt',
                         { className: article.id || 'ax-disabled' },
                         'Art. ID'
                      ),
-                     _React['default'].createElement(
+                     _react2.default.createElement(
                         'dd',
                         null,
                         article.id
                      ),
-                     _React['default'].createElement(
+                     _react2.default.createElement(
                         'dt',
                         { className: article.id || 'ax-disabled' },
                         'Description'
                      ),
-                     _React['default'].createElement('dd', { dangerouslySetInnerHTML: { __html: article.htmlDescription } }),
-                     _React['default'].createElement(
+                     _react2.default.createElement('dd', { dangerouslySetInnerHTML: { __html: article.htmlDescription } }),
+                     _react2.default.createElement(
                         'dt',
                         { className: article.id || 'ax-disabled' },
                         'Price'
                      ),
-                     _React['default'].createElement(
+                     _react2.default.createElement(
                         'dd',
                         null,
                         this.formattedPrice(article.price)
                      )
                   )
+               ),
+               _react2.default.createElement(
+                  'div',
+                  { className: 'col col-md-6 app-teaser-image-wrapper' },
+                  article.pictureUrl && _react2.default.createElement('img', { className: 'app-teaser-image', src: article.pictureUrl })
                )
             )
          );
       },
-
       formattedPrice: function formattedPrice(price) {
          return price == null ? null : '€ ' + price.toFixed(2);
       }
-
    });
+
+   return exports.default;
 });

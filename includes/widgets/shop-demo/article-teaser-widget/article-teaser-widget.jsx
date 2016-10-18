@@ -58,12 +58,7 @@ const ArticleTeaser = React.createClass({
       return <div className={ 'app-teaser-wrapper clearfix' + (article.id && ' app-selection') }>
          <h4 className={ article.id || 'app-no-selection' }>{ article.name }</h4>
          <div className='row'>
-            <div className='col col-md-12 app-teaser-image-wrapper'>
-               { article.pictureUrl && <img className='app-teaser-image' src={ article.pictureUrl } /> }
-            </div>
-         </div>
-         <div className='row'>
-            <div className='col col-md-12'>
+            <div className='col col-md-6'>
                <dl className='dl-horizontal'>
                   <dt className={ article.id || 'ax-disabled' }>Art. ID</dt>
                   <dd>{ article.id }</dd>
@@ -74,6 +69,9 @@ const ArticleTeaser = React.createClass({
                   <dt className={ article.id || 'ax-disabled' }>Price</dt>
                   <dd>{ this.formattedPrice( article.price ) }</dd>
                </dl>
+            </div>
+            <div className='col col-md-6 app-teaser-image-wrapper'>
+               { article.pictureUrl && <img className='app-teaser-image' src={ article.pictureUrl } /> }
             </div>
          </div>
       </div>;

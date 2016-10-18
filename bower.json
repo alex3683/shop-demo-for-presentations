@@ -16,8 +16,7 @@
     "angular": "~1.4.3",
     "angular-route": "~1.4.3",
     "angular-sanitize": "~1.4.3",
-    "laxar-react-adapter": "~0.4.0",
-    "laxar-developer-tools-widget": "~2.1.1"
+    "laxar-react-adapter": "~0.4.0"
   },
   "devDependencies": {
     "laxar-mocks": "~1.1.0",

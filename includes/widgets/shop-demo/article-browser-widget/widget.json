@@ -37,6 +37,12 @@
                   "format": "topic",
                   "axRole": "outlet",
                   "description": "Name of the resource for the user selection"
+               },
+               "action": {
+                  "type": "string",
+                  "format": "topic",
+                  "axRole": "outlet",
+                  "description": "Name of an action to publish on user selection"
                }
             }
          }

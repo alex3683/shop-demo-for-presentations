@@ -30,7 +30,14 @@ define( [
          eventBus.publish( 'didReplace.' + selectionResource, {
             resource: selectionResource,
             data: article
-         } );
+         } ).then( function() {
+            var selectionAction = $scope.features.selection.action;
+            if( selectionAction ) {
+               eventBus.publish( 'takeActionRequest.' + selectionAction, {
+                  action: selectionAction
+               } );
+            }
+         });
       };
 
    }

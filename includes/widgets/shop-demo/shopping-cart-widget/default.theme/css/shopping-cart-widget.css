@@ -52,3 +52,6 @@
   padding: 0;
   line-height: 14px;
 }
+.shopping-cart-widget .text-right {
+  white-space: nowrap;
+}
